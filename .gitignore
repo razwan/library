@@ -1,0 +1,12 @@
+bower_components/
+node_modules/
+.idea
+.sass-cache
+editor-style.css
+style.css
+rtl.css
+assets/js/main.js
+*.css.map
+*.js.map
+.DS_Store
+vendor/font-awesome/font-awesome.css

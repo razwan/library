@@ -1,0 +1,143 @@
+/*------------------------------------*\
+    #JETPACK
+\*------------------------------------*/
+
+/* jetpack - sharedaddy */
+
+div.sd-content{
+
+	ul {
+		margin-bottom: 0 !important;
+	}
+}
+
+
+.sd-social {
+	margin-bottom: -5px;
+}
+
+
+div.sharedaddy .sd-social h3.sd-title {
+	@extend .beta;
+	@include font-size(16px);
+	@include baseline(16px);
+}
+
+
+
+
+
+/* jetpack - comment form */
+
+form.contact-form {
+	max-width: 30em;
+
+	input[type='text'],
+	input[type='email'],
+	textarea {
+		width: 100%;
+		max-width: 100%;
+		@include rhythm(margin-bottom, 2);
+		@include rhythm(padding, 1);
+		border: 1px solid $lightest;
+	}
+
+	.contact-submit {
+		@extend .clearfix;
+	}
+
+	.pushbutton-wide {
+		float: right;
+	}
+}
+
+
+
+
+
+/* jetpack - infinite scroll */
+
+$infiniteBarH: 50px;
+
+#infinite-footer {
+	z-index: 20;
+	width: 100%;
+	height: $infiniteBarH;
+	bottom: 0 !important;
+	padding: 0;
+	background: $black;
+	-webkit-font-smoothing: auto;
+	transition: bottom .3s ease-in;
+
+	.neverending.infinity-end & {
+		display: table;
+		bottom: -$infiniteBarH !important;
+	}
+
+	.container {
+		width: 100% !important;
+		min-height: $infiniteBarH;
+		padding: 0;
+		border: 0;
+		background: none;
+		transition: all .3s ease-in;
+	}
+
+	.blog-info,
+	.blog-credits {
+		display: inline-block;
+		width: auto;
+		float: none;
+		@include font-size(14px);
+		line-height: $infiniteBarH;
+		color: $light;
+
+		a {
+			color: white;
+
+			&:hover {
+				color: white;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.blog-info {
+		float: left;
+		@include rhythm(margin-right, 1, 14px);
+	}
+}
+
+
+.infinite-loader {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+}
+
+
+.infinite-scroll {
+
+	.pagination {
+		display: none;
+	}
+
+	.site-footer {
+		transition: transform .3s ease-in-out;
+		transform: translateY(100%);
+	}
+
+	&.infinity-end .site-footer {
+		transform: none;
+	}
+}
+
+
+
+
+
+/* jetpack - related posts */
+
+.jp-relatedposts {
+	clear: both;
+}

@@ -1,0 +1,232 @@
+/*------------------------------------*\
+    #TYPOGRAPH
+\*------------------------------------*/
+body {
+    @extend .beta;
+	line-height: 1.6;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	color: $gray;
+}
+
+.alpha {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    -webkit-font-smoothing: auto;
+}
+
+.beta {
+    font-family: "Bitstream Vera Sans", Helvetica, Verdana, sans-serif, serif;
+}
+
+/* #HEADINGS */
+h1 {
+    @extend .alpha;
+    @include font-size(34px);
+//    @include baseline(34px);
+    @include rhythm(margin-top, 4, 54px);
+    @include rhythm(margin-bottom, 2, 54px);
+}
+
+
+// @todo come back here
+// h1, h2, h3, h4, h5, h6 {
+// 	&:first-child {
+// 		margin-top: 0;
+// 	}
+// }
+
+/* #PARAGRAPHS */
+p {
+	@include font-size(16px);
+//    @include baseline(16px);
+    @include rhythm(margin-bottom, 2);
+}
+
+/* #LINKS */
+a {
+	text-decoration: none;
+	color: $borders;
+
+	&:hover {
+		color: $black;
+	}
+}
+
+
+
+
+
+/* #LISTS */
+// @todo style lists here
+// we should style only unclassed tags here
+
+.entry-content, .comment{
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		padding-left: 3em;
+	}
+
+	dd + dt {
+		margin-top: 1.5em;
+	}
+
+	li:not([class]) {
+		> ul:not([class])
+		> ol:not([class]) {
+			padding-left: 3em;
+		}
+	}
+
+	ul, ol {
+		margin-left: 1.5em;
+
+		li {
+			margin-bottom: 0.75em;
+		}
+	}
+}
+
+acronym {
+	border-bottom: 1px dotted $gray;
+}
+
+
+
+
+
+/* #BLOCKQUOTES */
+// @todo maybe style the q tag
+blockquote {
+	@extend .alpha;
+	position: relative;
+	text-align: center;
+	@include font-size(28px);
+	@include rhythm(margin-top, 6, 28px);
+	@include rhythm(margin-bottom, 5, 28px);
+	@include rhythm(padding-top, 4, 28px);
+	@include rhythm(padding-bottom, 4, 28px);
+
+	@include query-below($lap) {
+		@include font-size(18px);
+		@include rhythm(margin-top, 4, 18px);
+		@include rhythm(margin-bottom, 3, 18px);
+		@include rhythm(padding, 1, 18px);
+		@include rhythm(padding-top, 2, 18px);
+		@include rhythm(padding-bottom, 2, 18px);
+	}
+
+	&:before {
+		@extend .alpha;
+		content: '\201C';
+
+		position: absolute;
+		top: -0.5em;
+		left: 50%;
+
+		padding: 0 0.857em;
+
+		color: black;
+		background: white;
+
+		transform: translateX(-50%);
+	}
+
+	&:after {
+		content: '';
+
+		display: block;
+		width: 9em;
+		margin-left: -4.5em;
+
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		z-index: -1;
+
+		border: 1px solid #c3c3c3;
+		border-left: 0;
+		border-right: 0;
+	}
+
+	// @todo come vback and check this
+	p {
+		.single .entry-content & ,
+		.page .entry-content & {
+			margin-bottom: 0;
+			transform: none;
+		}
+	}
+
+	cite {
+		@extend .beta;
+		display: block;
+		@include rhythm(margin-top, 2, 16px);
+		@include font-size(16px, 28px, 24px);
+		font-style: normal;
+	}
+}
+
+/* #TABLES */
+
+table {
+	@extend .table--fixed;
+	@extend .table--cosy;
+	@include rhythm(margin-bottom, 2);
+	width: 100%;
+	border-top: 0;
+
+	th {
+		text-align: left;
+	}
+
+	tr {
+		// @todo why not use table--rows?
+		border-bottom: 1px solid $lightest;
+	}
+
+	th, td {
+		vertical-align: middle;
+	}
+}
+
+/* CODE */
+
+pre {
+	position: relative;
+
+	@include rhythm(padding-left, 3);
+	@include rhythm(padding-right, 3);
+	@include rhythm(padding-top, 2);
+	@include rhythm(padding-bottom, 2);
+
+	@include rhythm(margin-bottom, 2);
+
+	border: 1px solid $lightest;
+
+	&:before {
+		content: "\f121";
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		display: block;
+		padding: 3px;
+
+		font-family: FontAwesome;
+		font-size: 14px;
+
+		color: white;
+		background: $lightest;
+	}
+}
+
+

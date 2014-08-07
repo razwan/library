@@ -1,0 +1,76 @@
+/*----------------------------------------*\
+    #FOOTER
+\*----------------------------------------*/
+
+.site-footer {
+    @include rhythm(padding-top, 2);
+    @include rhythm(padding-bottom, 3);
+    background: $dark;
+    color: $light;
+    overflow: hidden;
+    -webkit-font-smoothing: auto;
+
+    a {
+        color: white;
+    }
+
+	.site-info {
+		@include query-below($lap) {
+			@include rhythm(margin-bottom, 1);
+		}
+	}
+
+	.footer-navigation {
+		text-align: right;
+	}
+
+	.site-info, .footer-navigation {
+		@extend %lap-one-half;
+		@include font-size(14px);
+		@include baseline(14px);
+
+		@include query-below($lap) {
+			width: 100%;
+			text-align: center;
+		}
+	}
+}
+
+
+
+
+
+/*----------------------------------------*\
+    #FOOTER NAVIGATION
+\*----------------------------------------*/
+
+.nav--footer {
+	margin-left: 2em;
+
+	li {
+		padding-left: 1em;
+
+		&:before {
+			content: "\2022";
+			font-family: monospace;
+			position: relative;
+			top: -0.1em;
+			margin-right: 1.2em;
+			pointer-events: none;
+			color: white;
+		}
+
+		&:first-child {
+			padding-left: 0;
+
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	// flatten it
+	ul {
+		display: none;
+	}
+}

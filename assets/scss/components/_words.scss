@@ -1,0 +1,105 @@
+html, body {
+	height: 100%;
+}
+
+.banner {
+//	display: none;
+	position: fixed;
+	top: 0; left: 0;
+	background: #ececec;
+	width: 100%;
+	height: 72px;
+	z-index: 200;
+
+	& + .box {
+		height: 100%;
+//		margin-top: -72px;
+		border-top: 72px solid transparent;
+	}
+
+	.squared & + .box {
+		height: auto;
+		margin-top: 0;
+		padding-top: 0;
+	}
+}
+
+.spacer {
+	padding-top: 65%;
+	position: relative;
+}
+
+.cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+}
+
+.image {
+	@extend .cover;
+
+	img {
+		@extend .center;
+		width: 100%;
+	}
+}
+
+.layout--vertical {
+	margin-top: -24px;
+
+	> li, > .layout__item {
+		margin-top: 24px;
+	}
+
+	&.layout--small {
+		margin-top: -12px;
+
+		> li, > .layout__item {
+			margin-top: 12px;
+		}
+	}
+}
+
+.words {
+	white-space: nowrap;
+	padding-bottom: 24px;
+	margin-left: -72px;
+}
+
+.word {
+	position: relative;
+	left: 0;
+	width: 100%;
+	display: inline-block;
+	white-space: normal;
+	padding-left: 48px;
+}
+
+.box {
+	position: relative;
+}
+
+.layout__item {
+	float: left;
+}
+
+.words > .layout__item {
+	float: none;
+
+	.image {
+		background: #c44;
+	}
+
+	&:nth-child(2) .image {
+		background: #4c4;
+	}
+}

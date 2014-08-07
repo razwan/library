@@ -1,0 +1,164 @@
+//* { background-color: rgba(255,0,0,.2); }
+//* * { background-color: rgba(0,255,0,.2); }
+//* * * { background-color: rgba(0,0,255,.2); }
+//* * * * { background-color: rgba(255,0,255,.2); }
+//* * * * * { background-color: rgba(0,255,255,.2); }
+//* * * * * * { background-color: rgba(255,255,0,.2); }
+
+html, body, .sidebar, .container {
+	height: 100%;
+}
+
+.banner {
+	width: 100%;
+	height: 4.5em;
+	position: absolute;
+	top: 0; left: 0;
+	background: dodgerblue;
+	z-index: 100;
+	display: table;
+	color: white;
+}
+
+.banner-title,
+.banner-search {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.banner-title {
+	width: 15em;
+	padding: 0 2em;
+
+	h1 {
+		margin: 0;
+		//@todo get rid of this
+		transform: none;
+	}
+}
+
+.banner-search {
+	padding-left: 4em;
+
+	form, input, button {
+		display: inline-block;
+	}
+
+	input[type="text"] {
+		font-size: 1rem;
+		padding: 0.5em 0;
+		font-weight: 300;
+		border: 0;
+		margin: 0;
+		outline: 0;
+		background: none;
+		color: white;
+		border-bottom: 1px solid white;
+	}
+
+	.btn {
+		// @todo btn-transparent
+		border: transparent;
+		background: transparent;
+	}
+}
+
+.sidebar, .container {
+	padding-top: 4.5em;
+}
+
+// space for filtering, sorting, grouping, categories, tags, dunno
+.sidebar {
+	background: #eee;
+	width: 15em;
+	float: left;
+	position: absolute;
+	top: 0; left: 0;
+}
+
+.container {
+	margin-left: 15em;
+	padding-left: 4em;
+	padding-right: 4em;
+	overflow-y: auto;
+}
+
+.heading {
+	border-bottom: 1px solid $borders;
+	margin-bottom: 2em;
+}
+
+.shelf {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	margin-bottom: 1em;
+	padding-right: 2em;
+	padding-bottom: 2em;
+	margin-right: -4em;
+
+	// pour some color on the covers
+	@for $i from 1 through 4 {
+		&:nth-child(#{$i}n) {
+			@for $j from 1 through 12 {
+				.book:nth-child(#{$j}n) > .book-cover{
+					background: adjust-hue(lightblue, $j * 90 + $i * 30);
+				}
+			}
+		}
+	}
+}
+
+.books {
+	white-space: nowrap;
+	margin-left: -1em;
+}
+
+.book {
+	width: 10em;
+	display: inline-block;
+	margin-left: 1em;
+	margin-right: 3em;
+	white-space: normal;
+}
+
+.book-cover {
+	padding-bottom: 150%;
+	background: blue;
+}
+
+.book-info {
+	margin-right: -3em;
+}
+
+.book-title {
+	@include font-size(18px);
+//	@include baseline(18px);
+	@include rhythm(margin-top, 1, 18px);
+	font-weight: bold;
+}
+
+.book-author {
+	font-size: (14/18) + em;
+	font-weight: normal;
+	display: block;
+}
+
+// displays book info along the side of the cover
+// this layout gives space for categories, tags, borrower and so on
+.book--thumb {
+	margin-right: 18em;
+
+	.book-cover {
+		width: 10em;
+		float: left;
+	}
+
+	.book-info {
+		margin-left: 12em;
+		margin-right: -15em;
+	}
+
+	.book-title {
+		margin-top: 0;
+	}
+}
