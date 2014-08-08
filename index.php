@@ -14,41 +14,6 @@
 get_header(); ?>
 
 <?php
-//	$args = array(
-//		'orderby' => 'title',
-//		'order' => 'ASC',
-//		'caller_get_posts' => 1,
-//		'posts_per_page' => 20,
-//	);
-//
-//	query_posts($args);
-//
-//	if (have_posts()) {
-//
-//		$curr_letter = '';
-//
-//		while (have_posts()) {
-//
-//			the_post();
-//
-//			$this_letter = strtoupper(substr($post->post_title,0,1));
-//
-//			if ($this_letter != $curr_letter) {
-//				echo '<div class="heading"><h1>' . $this_letter . '</h1></div>' . "\n";
-//				echo '<div class="shelf">'. "\n" .'<div class="books">' . "\n";
-//			}
-//
-//			get_template_part( 'content', get_post_format() );
-//
-//			if ($this_letter != $curr_letter) {
-//				echo '</div><!--books-->' . "\n" . '</div><!--shelf-->' . "\n\n";
-//				$curr_letter = $this_letter;
-//			}
-//		}
-//	}
-?>
-
-<?php
 
 $args = array (
 	'posts_per_page' => -1,
@@ -57,6 +22,9 @@ $args = array (
 );
 
 query_posts($args);
+
+$curr_letter = '';
+$post_count = 0;
 
 if ( have_posts() ) {
 
@@ -72,9 +40,6 @@ if ( have_posts() ) {
 			}
 			start_new_letter($first_letter);
 			$curr_letter = $first_letter;
-		}
-		if (++$in_this_row > $posts_per_row) {
-			++$in_this_row;  // Account for this first post
 		}
 
 		get_template_part( 'content', get_post_format() );
