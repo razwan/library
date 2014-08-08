@@ -9,6 +9,18 @@ html, body, .sidebar, .container {
 	height: 100%;
 }
 
+#page{
+	position: relative;
+}
+
+.banner-title a{
+	color: white;
+}
+
+.book-title a{
+	color: black;
+}
+
 .banner {
 	width: 100%;
 	height: 4.5em;
@@ -96,21 +108,23 @@ html, body, .sidebar, .container {
 	padding-bottom: 2em;
 	margin-right: -4em;
 
-	// pour some color on the covers
-	@for $i from 1 through 4 {
-		&:nth-child(#{$i}n) {
-			@for $j from 1 through 12 {
-				.book:nth-child(#{$j}n) > .book-cover{
-					background: adjust-hue(lightblue, $j * 90 + $i * 30);
-				}
-			}
-		}
-	}
+//	// pour some color on the covers
+//	@for $i from 1 through 4 {
+//		&:nth-child(#{$i}n) {
+//			@for $j from 1 through 12 {
+//				.book:nth-child(#{$j}n) > .book-cover{
+//					background: adjust-hue(lightblue, $j * 90 + $i * 30);
+//				}
+//			}
+//		}
+//	}
 }
 
 .books {
 	white-space: nowrap;
 	margin-left: -1em;
+
+	padding-top: 2em;
 }
 
 .book {
@@ -122,8 +136,13 @@ html, body, .sidebar, .container {
 }
 
 .book-cover {
-	padding-bottom: 150%;
-	background: blue;
+//	padding-bottom: 150%;
+//	background: blue;
+
+	img{
+		max-width: 100%;
+		height: auto;
+	}
 }
 
 .book-info {
