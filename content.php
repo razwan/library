@@ -15,10 +15,19 @@
 
 			$post_author = '';
 
-			if(!empty($post_meta['book_author'])){
+			if(!empty($post_meta['book_author']))
 				$post_author = 'by ' . $post_meta['book_author'][0];
-			}
+
+
+			$book_link = '';
+
+			if(!empty($post_meta['book_link']))
+				$book_link = 'href="' . $post_meta['book_link'][0] . '" target="_blank"';
+			else
+				$book_link = 'href="' . get_post_permalink() . '"';
+
 		?>
-		<?php the_title( sprintf( '<h1 class="book-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a><span class="book-author">' . $post_author . '</span></h1>' ); ?>
+
+		<h1 class="book-title"><a <?php echo $book_link; ?> rel="bookmark"><?php the_title(); ?></a><span class="book-author"><?php echo $post_author; ?></span></h1>
 	</div>
 </article>
