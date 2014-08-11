@@ -2,10 +2,18 @@
 /**
  * @package _s
  */
+
+$book_link = '';
+
+if(!empty($post_meta['book_link']))
+	$book_link = 'href="' . $post_meta['book_link'][0] . '" target="_blank"';
+else
+	$book_link = 'href="' . get_post_permalink() . '"';
+
 ?>
 <article id="post-<?php the_ID(); ?>" class="book">
 	<div class="book-cover">
-		<a href="<?php the_permalink(); ?>">
+		<a <?php echo $book_link; ?>>
 			<?php the_post_thumbnail(); ?>
 		</a>
 	</div>
@@ -17,14 +25,6 @@
 
 			if(!empty($post_meta['book_author']))
 				$post_author = 'by ' . $post_meta['book_author'][0];
-
-
-			$book_link = '';
-
-			if(!empty($post_meta['book_link']))
-				$book_link = 'href="' . $post_meta['book_link'][0] . '" target="_blank"';
-			else
-				$book_link = 'href="' . get_post_permalink() . '"';
 
 		?>
 
