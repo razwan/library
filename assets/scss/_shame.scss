@@ -18,7 +18,13 @@ html, body, .sidebar, .container {
 }
 
 .book-title a{
+	-ms-word-break: break-all;
+	word-break: break-all;
 	color: black;
+}
+
+.category-title{
+	text-transform: capitalize;
 }
 
 .banner {

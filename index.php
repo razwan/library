@@ -18,7 +18,7 @@ $categories = get_categories();
 foreach($categories as $category) : ?>
 
 	<div class="heading">
-        <h1><?php echo $category->name; ?></h1>
+        <h1 class="category-title"><?php echo $category->name; ?></h1>
 	</div>
 	<div class="shelf">
 		<div class="books">
