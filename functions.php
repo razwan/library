@@ -88,6 +88,8 @@ function _s_widgets_init() {
 }
 add_action( 'widgets_init', '_s_widgets_init' );
 
+add_theme_support( 'post-thumbnails' );
+
 /**
  * Enqueue scripts and styles.
  */
