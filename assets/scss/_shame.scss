@@ -131,27 +131,77 @@ html, body, .sidebar, .container {
 	margin-left: -1em;
 
 	padding-top: 2em;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-pack: start;
+	-moz-box-pack: start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-webkit-align-content: stretch;
+	-ms-flex-line-pack: stretch;
+	align-content: stretch;
 }
 
 .book {
+	position: relative;
+
 	width: 10em;
 	display: inline-block;
+	vertical-align: bottom;
 	margin-left: 1em;
 	margin-right: 3em;
+
 	white-space: normal;
+
+
+	-webkit-box-ordinal-group: 1;
+	-moz-box-ordinal-group: 1;
+	-webkit-order: 0;
+	-ms-flex-order: 0;
+	order: 0;
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	-webkit-flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	-webkit-align-self: auto;
+	-ms-flex-item-align: auto;
+	align-self: auto;
 }
 
 .book-cover {
-//	padding-bottom: 150%;
-//	background: blue;
+
+	a{
+		overflow: hidden;
+		height: 15em;
+		display: block;
+		position: relative;
+	}
 
 	img{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
 		max-width: 100%;
 		height: auto;
 	}
 }
-
-//g
 
 .book-title {
 	@include font-size(18px);
