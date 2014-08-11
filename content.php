@@ -3,6 +3,13 @@
  * @package _s
  */
 
+$post_meta = get_post_custom(get_the_ID());
+
+$post_author = '';
+
+if(!empty($post_meta['book_author']))
+	$post_author = 'by ' . $post_meta['book_author'][0];
+
 $book_link = '';
 
 if(!empty($post_meta['book_link']))
@@ -18,16 +25,6 @@ else
 		</a>
 	</div>
 	<div class="book-info">
-		<?php
-			$post_meta = get_post_custom(get_the_ID());
-
-			$post_author = '';
-
-			if(!empty($post_meta['book_author']))
-				$post_author = 'by ' . $post_meta['book_author'][0];
-
-		?>
-
 		<h1 class="book-title"><a <?php echo $book_link; ?> rel="bookmark"><?php the_title(); ?></a><span class="book-author"><?php echo $post_author; ?></span></h1>
 	</div>
 </article>
