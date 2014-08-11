@@ -5,7 +5,9 @@
 ?>
 <article id="post-<?php the_ID(); ?>" class="book">
 	<div class="book-cover">
-		<?php the_post_thumbnail(); ?>
+		<a href="<?php the_permalink(); ?>">
+			<?php the_post_thumbnail(); ?>
+		</a>
 	</div>
 	<div class="book-info">
 		<?php
