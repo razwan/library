@@ -157,10 +157,7 @@ $window.load(function () {
             }
         });
 
-        console.log(coverHeight);
-
         var booksRowId = $(this).attr('id');
-        console.log(booksRowId);
 
         $('#' + booksRowId).find('.book .book-cover').css('height', coverHeight);
 

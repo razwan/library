@@ -190,6 +190,8 @@ html, body, .sidebar, .container {
 	}
 
 	img{
+		max-height: 220px;
+		width: auto;
 		max-width: 100%;
 		height: auto;
 	}
@@ -199,8 +201,10 @@ html, body, .sidebar, .container {
 
 		img{
 			position: absolute;
-			left: 0;
+			left: 50%;
 			bottom: 0;
+
+			transform: translateX(-50%);
 		}
 	}
 }
