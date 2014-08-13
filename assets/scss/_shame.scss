@@ -186,26 +186,28 @@ html, body, .sidebar, .container {
 .book-cover {
 
 	a{
-//		position: relative;
-//		overflow: hidden;
-//		height: 15em;
-
 		display: block;
 	}
 
 	img{
-//		position: absolute;
-//		bottom: 0;
-//		left: 0;
-
 		max-width: 100%;
 		height: auto;
+	}
+
+	.parsed &{
+		position: relative;
+
+		img{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
 	}
 }
 
 .book-title {
+
 	@include font-size(18px);
-//	@include baseline(18px);
 	@include rhythm(margin-top, 1, 18px);
 	font-weight: bold;
 }

@@ -93,7 +93,14 @@ add_theme_support( 'post-thumbnails' );
 /**
  * Enqueue scripts and styles.
  */
+
+
 function _s_scripts() {
+	$version = wp_get_theme()->version;
+
+	//Enqueue jQuery
+	wp_enqueue_script( 'jquery' );
+
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -103,6 +110,9 @@ function _s_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	//Enqueue Hive Custom Scripts
+	wp_enqueue_script( '_s-scripts', get_stylesheet_directory_uri() . '/assets/js/main.js', array(), $version, true );
 }
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
 

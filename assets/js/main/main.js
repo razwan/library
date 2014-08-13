@@ -56,8 +56,6 @@ function update() {
     "use strict";
 
     ticking = false;
-
-    updateStickyMenu();
 }
 
 /* ====== INTERNAL FUNCTIONS END ====== */
@@ -145,6 +143,29 @@ $window.load(function () {
     function hideSubMenu() {
         $(this).removeClass('hover').children('ul').hide();
     }
+
+    var coverHeight = 0;
+    var currentCoverHeight = 0;
+
+    $('.books').each(function(){
+
+        $(this).find('.book').each(function(){
+            currentCoverHeight = $(this).find('.book-cover').height();
+
+            if(currentCoverHeight > coverHeight){
+                coverHeight = currentCoverHeight;
+            }
+        });
+
+        console.log(coverHeight);
+
+        var booksRowId = $(this).attr('id');
+        console.log(booksRowId);
+
+        $('#' + booksRowId).find('.book .book-cover').css('height', coverHeight);
+
+        $(this).addClass('parsed');
+    });
 
 });
 

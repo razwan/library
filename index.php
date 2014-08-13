@@ -21,7 +21,7 @@ foreach($categories as $category) : ?>
         <h1 class="category-title"><?php echo $category->name; ?></h1>
 	</div>
 	<div class="shelf">
-		<div class="books">
+		<div class="books" id="books-<?php echo $category->term_id; ?>">
 			<?php
 				query_posts('cat=' . $category->term_id);
 
